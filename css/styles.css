@@ -1,0 +1,434 @@
+/* ==========================================================
+   KDL Consulting Landing Page Styles
+   - Clean, framework-free CSS3
+   - Mobile-first responsive design
+   - Easy to edit variable-based color system
+========================================================== */
+
+:root {
+  --bg: #f7f6f3;
+  --surface: #ffffff;
+  --surface-alt: #eeece7;
+  --text: #1f2b2d;
+  --muted: #546266;
+  --primary: #2f5f66;
+  --primary-dark: #24474d;
+  --accent: #b78944;
+  --border: #d9d8d2;
+  --shadow: 0 10px 30px rgba(31, 43, 45, 0.1);
+  --radius: 16px;
+  --radius-sm: 12px;
+  --container: 1120px;
+}
+
+/* Base reset / defaults */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, Avenir, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.container {
+  width: min(var(--container), 92%);
+  margin-inline: auto;
+}
+
+.section {
+  padding: 4.5rem 0;
+}
+
+.section-alt {
+  background: var(--surface-alt);
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.2;
+  margin-top: 0;
+}
+
+h2 {
+  font-size: clamp(1.8rem, 2.8vw, 2.4rem);
+  margin-bottom: 1rem;
+}
+
+p {
+  margin-top: 0;
+}
+
+/* Utility class for accessibility text */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+/* ==========================================================
+   Header + Navigation
+========================================================== */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 72px;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-weight: 700;
+}
+
+.brand-mark {
+  background: var(--primary);
+  color: white;
+  padding: 0.3rem 0.55rem;
+  border-radius: 8px;
+  letter-spacing: 0.03em;
+}
+
+.brand-text {
+  color: var(--primary-dark);
+}
+
+.menu-toggle {
+  display: none;
+  border: 1px solid var(--border);
+  background: white;
+  color: var(--primary-dark);
+  padding: 0.5rem 0.65rem;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.site-nav a {
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.site-nav a:hover {
+  color: var(--primary);
+}
+
+/* ==========================================================
+   Hero
+========================================================== */
+.hero {
+  position: relative;
+  min-height: 78vh;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    115deg,
+    rgba(18, 29, 31, 0.83) 0%,
+    rgba(18, 29, 31, 0.62) 40%,
+    rgba(18, 29, 31, 0.25) 100%
+  );
+}
+
+.hero-content {
+  position: relative;
+  color: #fff;
+  max-width: 760px;
+  padding: 2rem 0;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.11em;
+  font-weight: 700;
+  color: #f0dfbe;
+}
+
+.hero h1 {
+  font-size: clamp(2rem, 5vw, 3.9rem);
+  margin-bottom: 0.4rem;
+}
+
+.hero-subtitle {
+  font-size: clamp(1rem, 2vw, 1.35rem);
+  margin-bottom: 1rem;
+  color: #e2ecee;
+}
+
+.hero-copy {
+  max-width: 64ch;
+  color: #f1f5f6;
+}
+
+.hero-actions {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  padding: 0.7rem 1.15rem;
+  font-weight: 700;
+  border: 2px solid transparent;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #222;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.8);
+}
+
+/* ==========================================================
+   About / Services / Projects
+========================================================== */
+.split-grid {
+  display: grid;
+  gap: 1.6rem;
+  grid-template-columns: 1.35fr 1fr;
+}
+
+.about-highlight {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.4rem;
+  box-shadow: var(--shadow);
+}
+
+.about-highlight ul {
+  margin: 0;
+  padding-left: 1.1rem;
+}
+
+.about-highlight li {
+  margin-bottom: 0.4rem;
+}
+
+.service-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.service-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 1.2rem;
+}
+
+.section-intro {
+  color: var(--muted);
+  margin-bottom: 1.4rem;
+}
+
+.project-grid {
+  display: grid;
+  gap: 1.2rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.project-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.35rem;
+  box-shadow: var(--shadow);
+}
+
+.project-logo {
+  height: 64px;
+  width: auto;
+  object-fit: contain;
+  margin-bottom: 1rem;
+}
+
+.project-link {
+  display: inline-block;
+  margin-top: 0.65rem;
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.project-link:hover {
+  color: var(--primary-dark);
+}
+
+/* Light reveal animation class controlled by JS */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ==========================================================
+   Contact + Footer
+========================================================== */
+.contact-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.3rem;
+  box-shadow: var(--shadow);
+}
+
+.contact-grid {
+  margin-top: 1rem;
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.contact-item {
+  background: #f8f8f5;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.8rem;
+  font-weight: 600;
+}
+
+.contact-item:hover {
+  background: #f0eee8;
+}
+
+.contact-item.static {
+  color: var(--muted);
+}
+
+.site-footer {
+  background: #182426;
+  color: #d6dee0;
+  padding: 1rem 0;
+}
+
+.footer-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.site-footer a {
+  color: #e9c88b;
+  font-weight: 600;
+}
+
+/* ==========================================================
+   Responsive Breakpoints
+========================================================== */
+@media (max-width: 900px) {
+  .split-grid,
+  .service-grid,
+  .project-grid,
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  .menu-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .site-nav {
+    position: absolute;
+    right: 4%;
+    top: 64px;
+    width: min(250px, 92vw);
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    padding: 0.75rem;
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .site-nav.open {
+    display: flex;
+  }
+
+  .hero {
+    min-height: 72vh;
+  }
+
+  .section {
+    padding: 3.5rem 0;
+  }
+}
